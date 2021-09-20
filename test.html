@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Bsoft Limited</title>
+	</head>
+	<body>
+		<div id="container"></div>
+		<script src="js/ajax.js"></script>
+		<script>
+			var url = "api/users/read.php";
+			var jsonRequest = { "username" : "okelekelenobel@gmail.com", "password" : "calabargirl" };
+			function say(status, jsonResult){
+				if(status == "200"){
+					document.write(jsonResult.name + "<br>");
+					document.write(jsonResult.surname + "<br>");
+					document.write(jsonResult.username + "<br>");
+					document.write(jsonResult.email + "<br>");
+					document.write(jsonResult.number + "<br>");
+				}else{
+					document.write(jsonResult.message);
+				}
+			}
+			request(url, jsonRequest, say);
+		</script>
+	</body>
+</html>
